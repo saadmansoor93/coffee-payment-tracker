@@ -6,6 +6,10 @@ A simple web application to help office coworkers track whose turn it is to pay 
 
 Check out the live application: [Coffee Payment Tracker](https://coffee-payment-tracker.vercel.app/)
 
+
+https://github.com/user-attachments/assets/2555cfd0-009b-4436-b862-605832326785
+
+
 ## Repository
 
 View the source code: [GitHub Repository](https://github.com/saadmansoor93/coffee-payment-tracker)
