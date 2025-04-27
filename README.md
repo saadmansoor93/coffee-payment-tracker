@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Coffee Payment Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple web application to help office coworkers track whose turn it is to pay for the daily coffee run.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+Check out the live application: [Coffee Payment Tracker](https://coffee-payment-tracker.vercel.app/)
 
-### `npm start`
+## Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+View the source code: [GitHub Repository](https://github.com/saadmansoor93/coffee-payment-tracker)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Problem Statement
 
-### `npm test`
+In an office with 7 coworkers who get coffee together daily, it's hard to keep track of whose turn it is to pay, especially when everyone orders different drinks with different prices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Solution
 
-### `npm run build`
+This app tracks:
+- Each person's preferred coffee drink and its price
+- Payment history with dates and amounts
+- Who should pay next (calculated based on fair distribution of payment burden)
+- Cost accumulation for each coworker
+- Payment frequency statistics
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Smart Payment Algorithm**: Determines whose turn it is to pay based on drink prices and payment history
+- **Detailed Tracking**: Monitors total paid amounts, individual drink costs, and payment frequency
+- **Transparent Reasoning**: Explains why a specific person was chosen to pay
+- **Easy Management**: Add new coworkers or reset payment history as needed
+- **Persistent Storage**: Data is saved to local storage between sessions
+- **Mobile Responsive**: Works on all device sizes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technology Stack
 
-### `npm run eject`
+- React
+- Tailwind CSS
+- Local Storage API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
+1. Clone the repository:
+```
+git clone https://github.com/saadmansoor93/coffee-payment-tracker
+cd coffee-payment-tracker
+```
+   
+   Or simply download the source code from the [repository page](https://github.com/saadmansoor93/coffee-payment-tracker)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
+```
+npm install
+```
 
-## Learn More
+3. Start the development server:
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Open http://localhost:3000 in your browser
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How It Works
 
-### Code Splitting
+The payment algorithm works as follows:
+1. Calculates the total cost of all coffees in a round
+2. For each person, tracks how many "rounds" they've paid for (their total paid / cost of a round)
+3. Calculates how many rounds they should ideally have paid based on their drink price relative to the total
+4. The person with the largest negative difference between actual and ideal rounds paid is the next payer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This ensures that people with more expensive drinks pay proportionally more often than those with cheaper drinks.
 
-### Analyzing the Bundle Size
+## Assumptions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. All coworkers get coffee every day
+2. Coffee prices remain constant (though prices can be updated manually)
+3. Fairness means people with more expensive drinks should pay more often
+4. The app is meant to be used by a single office group
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Saad Mansoor
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details
